@@ -1,37 +1,36 @@
-"use client"
-
-import * as React from "react"
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-
-import { Button } from "@/components/ui/button"
+import { getCategories } from "@/service/queries";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
-type Checked = DropdownMenuCheckboxItemProps["checked"]
 
-export function DropdownMenuCheckboxes() {
-  
-    const [showPanel, setShowPanel] = React.useState<Checked>(false)
+export async function DropdownMenuCheckboxes() {
+    const data = await getCategories();
 
     return (
-        <DropdownMenu >
+        <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="bg-blue-400 rounded-full text-white border-transparent w-[213px] has-[50px] py-[20px]">All categories</Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 ">
-                <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem
-                    checked={showPanel}
-                    onCheckedChange={setShowPanel}
+                <Button
+                    variant="outline"
+                    className="bg-blue-400 rounded-full text-white border-transparent w-[213px] h-[50px] py-[20px]"
                 >
-                    Panel
-                </DropdownMenuCheckboxItem>
+                    All categories
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+                <DropdownMenuSeparator />
+             
+                    {data.results?.map((item: any) => (
+                        <DropdownMenuCheckboxItem key={item.id} >{item.title}   </DropdownMenuCheckboxItem>
+                    ))}
+
+             
             </DropdownMenuContent>
         </DropdownMenu>
-    )
+    );
 }

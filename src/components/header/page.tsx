@@ -3,17 +3,25 @@ import React from 'react'
 import MainLogo from '../../images/main-logo.jpg'
 import Search from '@/app/icons/search'
 import User from '@/app/icons/user'
-import Cart from '@/app/icons/cart'
 import CartWithBadge from '@/app/icons/cart'
 import Sidebar from '../sidebar/page'
 import { DropdownMenuCheckboxes } from '../dropdown/page'
+import { getSubCategories } from '@/service/queries'
+import { SubCategoryType } from '@/types'
+import Link from 'next/link'
+import SubLinks from '../sub-links/page'
 
-const Header = () => {
+
+const Header = async () => {
+const data =  await getSubCategories()
+    // const results = data?.results;
+    console.log(data,"hjehjh2hrhjhr3hrghhe");
+    
     return (
         <header className='container'>
-            <nav className='flex items-center py-5 justify-between'>
+            <nav className='flex items-center py-5 justify-between '>
                 <Sidebar />
-                <div className='text-center lg:text-start md:text-start  md:block sm:block '>    <a href="/">
+                <div className='text-center lg:text-start md:text-start  md:block sm:block '>    <Link href="/">
                     <Image
                         src={MainLogo}
                         alt="Description of the image"
@@ -21,7 +29,7 @@ const Header = () => {
                         height={43}
                         priority
                     />
-                </a></div>
+                </Link></div>
                 <div className='sm:hidden md:hidden lg:block hidden'>
                     <div className='py-2 text-[18px] bg-gray-200 text-gray-500 flex rounded-lg px-2 w-[500px] h-[60px] justify-between items-center'>
                         <input type="text" placeholder='search...' className='focus:outline-none bg-inherit' />
@@ -36,8 +44,9 @@ const Header = () => {
 
                 </div>
             </nav>
-            <nav>
+            <nav className='flex justify-between mb-5'>
                 <DropdownMenuCheckboxes/>
+                <div > <SubLinks /></div>
             </nav>
         </header>
 

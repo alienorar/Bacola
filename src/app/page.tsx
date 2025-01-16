@@ -1,9 +1,15 @@
-import Image from "next/image";
+import Banner from "@/components/banner/page";
+import { getBanners } from "@/service/queries";
 
-export default function Home() {
+
+export default async function Home() {
+  const data = await getBanners()
+console.log(data);
+
+
   return (
-   <div>
-    <h1>Home</h1>
-   </div>
+    <div>
+      <Banner banners={data} />
+    </div>
   );
 }
