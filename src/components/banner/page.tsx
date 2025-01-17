@@ -16,43 +16,25 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ banners }) => {
     return (
-        <Carousel>
-           
+        <div className="w-full max-w-[1200px] mx-auto">
+            <Carousel className="relative">
                 {banners?.results?.map((item) => (
-                     <CarouselContent key={item.id}>
-                    <CarouselItem >
+                    <CarouselItem key={item.id}>
                         <Image
                             src={item.image}
                             alt="Description of the image"
-                            width={1200}
-                            height={73}
+                            layout="responsive"
+                            width={1200} 
+                            height={600} 
                             priority
+                            className="rounded-lg"
                         />
                     </CarouselItem>
-                    <CarouselItem >
-                        <Image
-                            src={item.image}
-                            alt="Description of the image"
-                            width={1200}
-                            height={73}
-                            priority
-                        />
-                    </CarouselItem>
-                    <CarouselItem >
-                        <Image
-                            src={item.image}
-                            alt="Description of the image"
-                            width={1200}
-                            height={73}
-                            priority
-                        />
-                    </CarouselItem>
-                    </CarouselContent>
-
                 ))}
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel>
+                <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white  rounded-full shadow-lg" />
+                <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white  rounded-full shadow-lg" />
+            </Carousel>
+        </div>
     );
 };
 

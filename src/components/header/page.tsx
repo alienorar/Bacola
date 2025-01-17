@@ -7,15 +7,11 @@ import CartWithBadge from '@/app/icons/cart'
 import Sidebar from '../sidebar/page'
 import { DropdownMenuCheckboxes } from '../dropdown/page'
 import { getSubCategories } from '@/service/queries'
-import { SubCategoryType } from '@/types'
 import Link from 'next/link'
-import SubLinks from '../sub-links/page'
 
 
 const Header = async () => {
 const data =  await getSubCategories()
-    // const results = data?.results;
-    console.log(data,"hjehjh2hrhjhr3hrghhe");
     
     return (
         <header className='container'>
@@ -46,7 +42,12 @@ const data =  await getSubCategories()
             </nav>
             <nav className='flex justify-between mb-5'>
                 <DropdownMenuCheckboxes/>
-                <div > <SubLinks /></div>
+              <div>
+                    <Link href={'/blog'} className="px-4 py-2 rounded-full text-gray-600 hover:text-blue-500 hover:bg-blue-50 transition duration-200">Blog
+                </Link>
+                    <Link href={'/contact'} className="px-4 py-2 rounded-full text-gray-600 hover:text-blue-500 hover:bg-blue-50 transition duration-200">Contact
+                </Link>
+              </div>
             </nav>
         </header>
 

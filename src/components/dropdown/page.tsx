@@ -17,7 +17,7 @@ export async function DropdownMenuCheckboxes() {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className="bg-blue-400 rounded-full text-white border-transparent w-[213px] h-[50px] py-[20px]"
+                    className="bg-blue-400 rounded-full text-white border-transparent w-[213px] h-[40px] py-[20px]"
                 >
                     All categories
                 </Button>
