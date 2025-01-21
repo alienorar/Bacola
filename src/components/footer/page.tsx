@@ -71,18 +71,18 @@ const categories = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-100 p-6 ">
-      <div className="bg-blue-600 text-white p-6 text-center ">
+    <footer className="bg-gray-100  ">
+      <div className="bg-blue-800 text-white p-6 text-center">
         <p>Subscribe to our Newsletter & Get $20 discount for your first order</p>
-        <form className="mt-4 flex justify-center">
+        <form className="mt-4 flex justify-center ">
           <input
             type="email"
             placeholder="Enter your email address"
             className="p-2 mr-2 rounded"
           />
-          <button type="submit" className="p-2 bg-blue-800 rounded">
+          <button type="submit" className="p-2 bg-blue-400 rounded">
             Subscribe
-          </button>
+          </button> 
         </form>
         <p className="mt-2">Get E-mail updates about our latest shop and special offers.</p>
       </div>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 container">
         {categories.map((category) => (
           <div key={category.title}>
             <h3 className="font-semibold">{category.title}</h3>

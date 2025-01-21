@@ -27,7 +27,7 @@ const data =  await getSubCategories()
                     />
                 </Link></div>
                 <div className='sm:hidden md:hidden lg:block hidden'>
-                    <div className='py-2 text-[18px] bg-gray-200 text-gray-500 flex rounded-lg px-2 w-[500px] h-[60px] justify-between items-center'>
+                    <div className='py-2 text-[18px] bg-gray-200 text-gray-500 flex rounded-full px-2 w-[800px] h-[50px] justify-between items-center'>
                         <input type="text" placeholder='search...' className='focus:outline-none bg-inherit' />
                         <Search />
                     </div>
@@ -40,12 +40,12 @@ const data =  await getSubCategories()
 
                 </div>
             </nav>
-            <nav className='flex justify-between mb-5'>
+            <nav className='flex justify-between py-4 items-center  '>
                 <DropdownMenuCheckboxes/>
-              <div>
-                    <Link href={'/blog'} className="px-4 py-2 rounded-full text-gray-600 hover:text-blue-500 hover:bg-blue-50 transition duration-200">Blog
+              <div  className='flex gap-2'>
+                    <Link href={'/blog'} className="h-[41px] flex justify-center items-center w-[90px] hover:bg-blue-500 hover:text-blue-50  rounded-full text-blue-500 bg-blue-50 transition duration-200">Blog
                 </Link>
-                    <Link href={'/contact'} className="px-4 py-2 rounded-full text-gray-600 hover:text-blue-500 hover:bg-blue-50 transition duration-200">Contact
+                    <Link href={'/contact'} className="h-[41px] flex justify-center items-center w-[120px] hover:bg-blue-500 hover:text-blue-50 rounded-full text-blue-500 bg-blue-50 transition duration-200">Contact
                 </Link>
               </div>
             </nav>

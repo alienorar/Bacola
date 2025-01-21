@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <div className="">
           <Header />
-          <main className=" container flex flex-col justify-between h-screen">
+          <main className=" container flex flex-col justify-between ">
         
             {children}
           </main>

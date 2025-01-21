@@ -7,7 +7,7 @@ export default async function Home() {
   const data = await getBanners()
 
   return (
-    <div className="flex flex-col container ">
+    <div className="flex flex-col container justify-end ">
       <Banner banners={data}/>
       <Products/>
     </div>
